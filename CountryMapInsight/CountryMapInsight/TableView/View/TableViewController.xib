@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TableViewController" customModule="CountryMapInsight" customModuleProvider="target">
             <connections>
+                <outlet property="tableView" destination="rRe-MU-WmR" id="FLh-0H-JlG"/>
                 <outlet property="view" destination="GtB-b7-0ec" id="nJz-2b-Emq"/>
             </connections>
         </placeholder>
@@ -18,16 +19,19 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MYTABLEVIEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNU-uP-rGf">
-                    <rect key="frame" x="175" y="416" width="116" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rRe-MU-WmR">
+                    <rect key="frame" x="8" y="67" width="377" height="743"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="8hP-fh-dMN"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="rRe-MU-WmR" firstAttribute="top" secondItem="8hP-fh-dMN" secondAttribute="top" constant="8" id="Tnb-FT-e2x"/>
+                <constraint firstItem="rRe-MU-WmR" firstAttribute="leading" secondItem="8hP-fh-dMN" secondAttribute="leading" constant="8" id="cG0-Xi-qC8"/>
+                <constraint firstItem="8hP-fh-dMN" firstAttribute="trailing" secondItem="rRe-MU-WmR" secondAttribute="trailing" constant="8" id="cRf-SD-o0U"/>
+                <constraint firstItem="8hP-fh-dMN" firstAttribute="bottom" secondItem="rRe-MU-WmR" secondAttribute="bottom" constant="8" id="ykv-vS-lP3"/>
+            </constraints>
             <point key="canvasLocation" x="-17" y="-498"/>
         </view>
     </objects>
