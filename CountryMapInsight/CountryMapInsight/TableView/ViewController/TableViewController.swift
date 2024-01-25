@@ -8,12 +8,13 @@
 import UIKit
 
 class TableViewController:  UIViewController {
+    
     // MARK: - ViewModel
     var viewModel = TableViewModel()
-        
+    
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,24 +22,21 @@ class TableViewController:  UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        // Registramos la celda custom
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
         
     }
     
     // MARK: - Acciones
     @objc func tapBtCapital(_ sender: UIButton) {
-        guard let cell = sender.superview as? TableViewCell,
-              let indexPath = tableView.indexPath(for: cell) else {
-            return
-        }
-        showDetail(viewModel.countries[indexPath.row], isCapital: true)
+        
+        let vc = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Funciones
     
-    func showDetail(_ nombre: String, isCapital: Bool = false) {
-        // Implementa la lógica para mostrar la vista de detalle aquí
-    }
 }
 
 // MARK: - Extensions
@@ -58,13 +56,25 @@ extension TableViewController: UITableViewDataSource {
         
         return cell
     }
+    
 }
 
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     
+    // Método para manejar la selección de una celda
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showDetail(viewModel.countries[indexPath.row])
+        // Obtener el país seleccionado
+        let selectedCountry = viewModel.country(at: indexPath.row)
+        
+        // Llamar al método tapBtCapital(_:)
+        tapBtCapitalForSelectedCountry(selectedCountry)
     }
     
+    // Método para manejar el tap en el botón y la selección de la celda
+    @objc func tapBtCapitalForSelectedCountry(_ country: String) {
+        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        detailViewController.selectedCountry = country
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
 }

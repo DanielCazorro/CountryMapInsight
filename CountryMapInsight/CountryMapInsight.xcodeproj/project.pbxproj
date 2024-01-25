@@ -16,6 +16,9 @@
 		2C1A5C202B6106E900B2DCCD /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C1F2B6106E900B2DCCD /* TableViewModel.swift */; };
 		2C1A5C242B61092300B2DCCD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C222B61092300B2DCCD /* TableViewCell.swift */; };
 		2C1A5C252B61092300B2DCCD /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1A5C232B61092300B2DCCD /* TableViewCell.xib */; };
+		2C1A5C292B610EF000B2DCCD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C272B610EF000B2DCCD /* DetailViewController.swift */; };
+		2C1A5C2A2B610EF000B2DCCD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1A5C282B610EF000B2DCCD /* DetailViewController.xib */; };
+		2C1A5C2F2B610F1300B2DCCD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C2E2B610F1300B2DCCD /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		2C1A5C1F2B6106E900B2DCCD /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
 		2C1A5C222B61092300B2DCCD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		2C1A5C232B61092300B2DCCD /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		2C1A5C272B610EF000B2DCCD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2C1A5C282B610EF000B2DCCD /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		2C1A5C2E2B610F1300B2DCCD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,7 @@
 				2C1A5C192B61057700B2DCCD /* App */,
 				2C1A5C1A2B61059800B2DCCD /* LaunchScreen */,
 				2C1A5C1B2B6105A800B2DCCD /* TableView */,
+				2C1A5C262B610ED300B2DCCD /* DetailView */,
 				2C1A5C0A2B6103D200B2DCCD /* Assets.xcassets */,
 				2C1A5C0F2B6103D200B2DCCD /* Info.plist */,
 			);
@@ -92,9 +99,9 @@
 			isa = PBXGroup;
 			children = (
 				2C1A5C212B6108EE00B2DCCD /* Cell */,
-				2C1A5C1E2B6106DF00B2DCCD /* ViewModel */,
-				2C1A5C1D2B6106D600B2DCCD /* ViewController */,
 				2C1A5C1C2B6106CF00B2DCCD /* View */,
+				2C1A5C1D2B6106D600B2DCCD /* ViewController */,
+				2C1A5C1E2B6106DF00B2DCCD /* ViewModel */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -130,6 +137,40 @@
 				2C1A5C222B61092300B2DCCD /* TableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2C1A5C262B610ED300B2DCCD /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				2C1A5C2B2B610EF400B2DCCD /* View */,
+				2C1A5C2C2B610EFC00B2DCCD /* ViewController */,
+				2C1A5C2D2B610F0400B2DCCD /* ViewModel */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
+		2C1A5C2B2B610EF400B2DCCD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C1A5C282B610EF000B2DCCD /* DetailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C1A5C2C2B610EFC00B2DCCD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C1A5C272B610EF000B2DCCD /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2C1A5C2D2B610F0400B2DCCD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2C1A5C2E2B610F1300B2DCCD /* DetailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +233,7 @@
 			files = (
 				2C1A5C0E2B6103D200B2DCCD /* LaunchScreen.storyboard in Resources */,
 				2C1A5C252B61092300B2DCCD /* TableViewCell.xib in Resources */,
+				2C1A5C2A2B610EF000B2DCCD /* DetailViewController.xib in Resources */,
 				2C1A5C0B2B6103D200B2DCCD /* Assets.xcassets in Resources */,
 				2C1A5C182B61040600B2DCCD /* TableViewController.xib in Resources */,
 			);
@@ -206,7 +248,9 @@
 			files = (
 				2C1A5C242B61092300B2DCCD /* TableViewCell.swift in Sources */,
 				2C1A5C022B6103D200B2DCCD /* AppDelegate.swift in Sources */,
+				2C1A5C2F2B610F1300B2DCCD /* DetailViewModel.swift in Sources */,
 				2C1A5C042B6103D200B2DCCD /* SceneDelegate.swift in Sources */,
+				2C1A5C292B610EF000B2DCCD /* DetailViewController.swift in Sources */,
 				2C1A5C172B61040600B2DCCD /* TableViewController.swift in Sources */,
 				2C1A5C202B6106E900B2DCCD /* TableViewModel.swift in Sources */,
 			);

@@ -20,7 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController = UINavigationController()
         let tableViewController = TableViewController()
-        //tableViewController.viewModel = TableViewController(viewDelegate: tableViewController)
         
         navigationController.setViewControllers([tableViewController], animated: true)
         
