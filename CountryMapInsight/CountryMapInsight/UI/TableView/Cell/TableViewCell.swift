@@ -12,8 +12,11 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var lbLikes: UILabel!  // Etiqueta para mostrar el número de likes
     @IBOutlet weak var btCapital: UIButton!  // Botón para la capital del país
     
-    // Acción del botón para la capital del país
+    // Closure para manejar la selección de la celda
+    var didSelectCell: (() -> Void)?
+    
     @IBAction func tapBtCapital(_ sender: Any) {
-        // Aquí se maneja la acción del botón
+        // Llamar al closure cuando se seleccione la celda
+        didSelectCell?()
     }
 }

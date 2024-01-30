@@ -40,6 +40,13 @@ extension TableViewController: UITableViewDataSource {
         cell.lbCountry.text = country.name
         cell.lbLikes.text = "\(country.likes) Likes"
         
+        // Configurar el closure en TableViewCell para manejar la selección de la celda
+        cell.didSelectCell = {
+            let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+            detailVC.country = country  // Pasar el objeto CountryModel seleccionado al DetailViewController
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
         return cell
     }
 }
@@ -47,5 +54,6 @@ extension TableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
