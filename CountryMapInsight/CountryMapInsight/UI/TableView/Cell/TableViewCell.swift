@@ -15,8 +15,14 @@ class TableViewCell: UITableViewCell {
     // Closure para manejar la selección de la celda
     var didSelectCell: (() -> Void)?
     
-    @IBAction func tapBtCapital(_ sender: Any) {
-        // Llamar al closure cuando se seleccione la celda
-        didSelectCell?()
+    // Método para configurar la celda con los datos del país
+    func configure(with country: CountryModel) {
+        // Configurar la celda con los datos del país
+        
+        // Acción para la selección de la celda
+        didSelectCell = { [weak self] in
+            guard let self = self else { return }
+            self.didSelectCell?() 
+        }
     }
 }

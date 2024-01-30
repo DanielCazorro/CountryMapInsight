@@ -54,6 +54,10 @@ extension TableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) as? TableViewCell else {
+            return
+        }
+        
+        cell.didSelectCell?()
     }
 }
