@@ -8,6 +8,7 @@
 import UIKit
 
 class TableViewController: UIViewController {
+    
     @IBOutlet weak var tableView: UITableView!
     
     var viewModel = TableViewModel()
@@ -41,6 +42,7 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = viewModel.countries[indexPath.row]
-        // Aquí puedes implementar la navegación al detalle del país
+        TableViewWireframe.navigateToCountryDetail(from: self, with: selectedCountry)
     }
+
 }

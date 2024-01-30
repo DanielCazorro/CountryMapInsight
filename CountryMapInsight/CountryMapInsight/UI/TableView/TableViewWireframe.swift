@@ -9,6 +9,15 @@ import UIKit
 
 class TableViewWireframe {
     static func navigateToCountryDetail(from viewController: UIViewController, with country: Country) {
-        // Aquí implementa la navegación al detalle del país
+        // Instanciar el controlador de vista de detalle desde su XIB
+        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        
+        // Configurar el ViewModel del controlador de vista de detalle
+        let detailViewModel = DetailViewModel(country: country)
+        detailViewController.viewModel = detailViewModel
+        
+        // Realizar la navegación
+        viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
+
