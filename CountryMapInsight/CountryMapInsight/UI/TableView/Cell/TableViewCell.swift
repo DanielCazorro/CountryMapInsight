@@ -14,15 +14,19 @@ class TableViewCell: UITableViewCell {
     
     // Closure para manejar la selección de la celda
     var didSelectCell: (() -> Void)?
+    // Nuevo closure para manejar la selección del botón de la capital
+    var didSelectCapitalButton: (() -> Void)?
     
-    // Método para configurar la celda con los datos del país
     func configure(with country: CountryModel) {
         // Configurar la celda con los datos del país
-        
-        // Acción para la selección de la celda
-        didSelectCell = { [weak self] in
-            guard let self = self else { return }
-            self.didSelectCell?() 
-        }
+        lbCountry.text = country.name
+        lbLikes.text = "Likes: \(country.likes)" // Corregir el texto del label de los likes
+
+        // Configurar el botón para que navegue a la capital
+        btCapital.addTarget(self, action: #selector(didTapCapitalButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapCapitalButton() {
+        didSelectCapitalButton?()  // Llamar al closure cuando se seleccione el botón de la capital
     }
 }

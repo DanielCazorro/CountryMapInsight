@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var btLikes: UIButton!
     
     var country: CountryModel?  // Propiedad country para almacenar el objeto CountryModel
+    var isCapitalDetail: Bool = false // Indicador de si se muestra el detalle de la capital
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +27,33 @@ class DetailViewController: UIViewController {
     
     func configureView() {
         if let country = country {
-            // Mostrar el nombre del país
-            lbName.text = country.name
             
-            // Configurar el mapa con las coordenadas del país
-            let countryCoordinates = country.countryCoordinates
-            let countryAnnotation = MKPointAnnotation()
-            countryAnnotation.coordinate = countryCoordinates
-            countryAnnotation.title = country.name
-            mvMap.addAnnotation(countryAnnotation)
-            mvMap.setCenter(countryCoordinates, animated: true)
+            if !isCapitalDetail {
+                // Mostrar el nombre del país
+                lbName.text = country.name
+                
+                // Configurar el mapa con las coordenadas del país
+                let countryCoordinates = country.countryCoordinates
+                let countryAnnotation = MKPointAnnotation()
+                countryAnnotation.coordinate = countryCoordinates
+                countryAnnotation.title = country.name
+                mvMap.addAnnotation(countryAnnotation)
+                mvMap.setCenter(countryCoordinates, animated: true)
+            } else {
+                
+                // Mostrar el nombre de la capital
+                lbName.text = country.capital
+                
+                // Configurar el mapa con las coordenadas del país
+                let capitalCoordinates = country.capitalCoordinates
+                let countryAnnotation = MKPointAnnotation()
+                countryAnnotation.coordinate = capitalCoordinates
+                countryAnnotation.title = country.capital
+                mvMap.addAnnotation(countryAnnotation)
+                mvMap.setCenter(capitalCoordinates, animated: true)
+            }
+                        
+
         }
     }
 

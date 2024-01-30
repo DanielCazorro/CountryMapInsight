@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class TableViewController: UIViewController {
     
@@ -37,13 +38,25 @@ extension TableViewController: UITableViewDataSource {
         let country = dataManager.countries[indexPath.row]
         
         // Configurar la celda con los datos del país
-        cell.lbCountry.text = country.name
-        cell.lbLikes.text = "\(country.likes) Likes"
+        cell.configure(with: country)
         
-        // Configurar el closure en TableViewCell para manejar la selección de la celda
-        cell.didSelectCell = {
+        // Manejar la selección de la celda
+        cell.didSelectCell = { [weak self] in
+            guard let self = self else { return }
+            
             let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
-            detailVC.country = country  // Pasar el objeto CountryModel seleccionado al DetailViewController
+            detailVC.country = country
+            detailVC.isCapitalDetail = false // Indicar que se muestra el detalle del país
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+        
+        // Manejar la selección del botón de la capital
+        cell.didSelectCapitalButton = { [weak self] in
+            guard let self = self else { return }
+            
+            let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
+            detailVC.country = country
+            detailVC.isCapitalDetail = true // Indicar que se muestra el detalle de la capital
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         
