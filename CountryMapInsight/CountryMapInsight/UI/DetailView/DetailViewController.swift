@@ -9,34 +9,26 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-    
-    //MARK: - IBOutlet
+
     @IBOutlet weak var mvMap: MKMapView!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var btLikes: UIButton!
-
-    var viewModel: DetailViewModel! // Asegúrate de inicializar esto en algún momento
-
+    
+    var viewModel: DetailViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
-    }
 
-    func setupView() {
-        // Configurar el mapa con las coordenadas del país
-        let countryLocation = CLLocationCoordinate2D(latitude: viewModel.countryLatitude, longitude: viewModel.countryLongitude)
-        let countryAnnotation = MKPointAnnotation()
-        countryAnnotation.coordinate = countryLocation
-        mvMap.addAnnotation(countryAnnotation)
-
-        // Configurar el nombre del país
-        lbName.text = viewModel.countryName
+        if let viewModel = viewModel {
+            lbName.text = viewModel.country.name
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = viewModel.countryCoordinate
+            mvMap.addAnnotation(annotation)
+            mvMap.setCenter(viewModel.countryCoordinate, animated: true)
+        }
     }
 
     @IBAction func btLikesTap(_ sender: Any) {
-        // Aumentar los likes al presionar el botón
-        viewModel.updateLikes()
-        // Actualizar la vista con el nuevo número de likes
-        btLikes.setTitle("Likes: \(viewModel.likes)", for: .normal)
+        // Implementa la lógica para aumentar los likes si es necesario
     }
 }

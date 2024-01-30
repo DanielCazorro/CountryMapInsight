@@ -9,20 +9,12 @@ import Foundation
 import MapKit
 
 class DetailViewModel {
-    var countryName: String
-    var countryLatitude: Double
-    var countryLongitude: Double
-    var likes: Int
+    let country: Country
+    let countryCoordinate: CLLocationCoordinate2D
 
-    init(country: Country) {
-        self.countryName = country.name
-        self.countryLatitude = country.countryCoordinate.latitude
-        self.countryLongitude = country.countryCoordinate.longitude
-        self.likes = country.likes
-    }
-
-    func updateLikes() {
-        likes += 1
+    init(country: Country, countryCoordinate: CLLocationCoordinate2D) {
+        self.country = country
+        self.countryCoordinate = countryCoordinate
     }
 }
 

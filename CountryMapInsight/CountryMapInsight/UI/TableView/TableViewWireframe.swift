@@ -6,18 +6,17 @@
 //
 
 import UIKit
+import MapKit
 
 class TableViewWireframe {
-    static func navigateToCountryDetail(from viewController: UIViewController, with country: Country) {
-        // Instanciar el controlador de vista de detalle desde su XIB
+    static func navigateToCountryDetail(from viewController: UIViewController, with country: Country, title: String) {
         let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
-        
-        // Configurar el ViewModel del controlador de vista de detalle
-        let detailViewModel = DetailViewModel(country: country)
+        let detailViewModel = DetailViewModel(country: country, countryCoordinate: <#CLLocationCoordinate2D#>)
         detailViewController.viewModel = detailViewModel
-        
-        // Realizar la navegación
+        detailViewController.title = title
         viewController.navigationController?.pushViewController(detailViewController, animated: true)
     }
-}
 
+
+
+}

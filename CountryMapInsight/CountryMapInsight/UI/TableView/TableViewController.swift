@@ -33,16 +33,23 @@ extension TableViewController: UITableViewDataSource, UITableViewDelegate {
         let country = viewModel.countries[indexPath.row]
         cell.lbCountry.text = country.name
         cell.lbLikes.text = "\(country.likes)"
+        
+        // Configurar la acción del botón "Capital" para actualizar los likes y recargar la celda
         cell.tapBtCapitalAction = { [weak self] in
-            self?.viewModel.updateLikes(for: country)
-            tableView.reloadData()
+            guard let self = self else { return }
+            var selectedCountry = self.viewModel.countries[indexPath.row]
+            selectedCountry.likes += 1 // Incrementar los likes
+            tableView.reloadRows(at: [indexPath], with: .automatic) // Recargar la celda
         }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCountry = viewModel.countries[indexPath.row]
-        TableViewWireframe.navigateToCountryDetail(from: self, with: selectedCountry)
+        let capital = selectedCountry.capital
+        TableViewWireframe.navigateToCountryDetail(from: self, with: selectedCountry, title: capital)
     }
+
 
 }
