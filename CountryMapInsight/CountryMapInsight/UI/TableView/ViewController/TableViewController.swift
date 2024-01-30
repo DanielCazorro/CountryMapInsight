@@ -2,24 +2,24 @@
 //  TableViewController.swift
 //  CountryMapInsight
 //
-//  Created by Daniel Cazorro Frias  on 24/1/24.
+//  Created by Daniel Cazorro Frias on 24/1/24.
 //
-
 import UIKit
+import MapKit
 
-class TableViewController:  UIViewController {
+// Enum para los casos de pulsar la celda o pulsar el botón
+enum ActionType {
+    case cellTap
+    case buttonTap
+}
+
+class TableViewController: UIViewController {
     
     // MARK: - ViewModel
     var viewModel = TableViewModel()
     
     // Propiedad para almacenar el país seleccionado
     var selectedCountry: String?
-    
-    // Enum para los casos de pulsar la celda o pulsar el botón
-    enum ActionType {
-        case cellTap
-        case buttonTap
-    }
     
     // MARK: - IBOutlet
     @IBOutlet weak var tableView: UITableView!
@@ -34,7 +34,6 @@ class TableViewController:  UIViewController {
         
         // Registramos la celda custom
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
-        
     }
     
     // MARK: - Acciones
@@ -49,25 +48,25 @@ class TableViewController:  UIViewController {
         
         // Obtener el país seleccionado
         let selectedCountry = viewModel.country(at: indexPath.row)
+        let capital = viewModel.capitalForCountry(selectedCountry)
         
         // Actualizar selectedCountry con información personalizada
-        updateSelectedCountry(selectedCountry, actionType: .buttonTap)
+        updateSelectedCountry(selectedCountry, capital: capital ?? "", actionType: .buttonTap)
     }
     
     // MARK: - Funciones
     
     // Método para navegar a DetailViewController con información personalizada
-    func navigateToDetailViewController(_ selectedCountry: String, customInformation: String) {
-        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
-        detailViewController.selectedCountry = selectedCountry
-        detailViewController.customInformation = customInformation
+    func navigateToDetailViewController(_ selectedCountry: String, capital: String, capitalCoordinate: CLLocationCoordinate2D, didSelectCountryClosure: ((String) -> Void)?) {
+        let detailViewModel = DetailViewModel(countryName: selectedCountry, cityName: capital, countryCoordinate: .zero, capitalCoordinate: capitalCoordinate)
         
+        let detailViewController = DetailViewController(nibName: "DetailViewController", bundle: nil)
+        detailViewController.detailViewModel = detailViewModel
+        detailViewController.didSelectCountryClosure = didSelectCountryClosure
+
         navigationController?.pushViewController(detailViewController, animated: true)
     }
-    
 }
-
-// MARK: - Extensions
 
 // MARK: - UITableViewDataSource
 extension TableViewController: UITableViewDataSource {
@@ -99,23 +98,24 @@ extension TableViewController: UITableViewDelegate {
         let selectedCountry = viewModel.country(at: indexPath.row)
         
         // Actualizar selectedCountry con información personalizada
-        updateSelectedCountry(selectedCountry, actionType: .cellTap)
+        updateSelectedCountry(selectedCountry, capital: "", actionType: .cellTap)
     }
-    
-    // Método para actualizar selectedCountry dependiendo de la acción realizada
-    private func updateSelectedCountry(_ country: String, actionType: ActionType) {
+}
+
+// Método para actualizar selectedCountry dependiendo de la acción realizada
+private extension TableViewController {
+    func updateSelectedCountry(_ country: String, capital: String, actionType: ActionType) {
         switch actionType {
-            
         case .cellTap:
             // Si se selecciona la celda, se actualiza selectedCountry con el país seleccionado
-            selectedCountry = country
-            
+            navigateToDetailViewController(country, capital: capital) { country in
+                print("Selected country in DetailViewController: \(country)")
+            }
         case .buttonTap:
-            // Si se pulsa el botón, se actualiza selectedCountry con información personalizada ("Custom Information" en este caso)
-            selectedCountry = "Custom Information"
+            // Si se pulsa el botón, se actualiza selectedCountry con la capital
+            navigateToDetailViewController(country, capital: country) { capital in
+                print("Selected capital in DetailViewController: \(capital)")
+            }
         }
-        
-        // Navegar a DetailViewController con la información actualizada
-        navigateToDetailViewController(selectedCountry ?? "", customInformation: selectedCountry ?? "")
     }
 }
