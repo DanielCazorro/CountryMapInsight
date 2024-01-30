@@ -20,9 +20,11 @@ class TableViewCell: UITableViewCell {
     func configure(with country: CountryModel) {
         // Configurar la celda con los datos del país
         lbCountry.text = country.name
+        lbLikes.textColor = .magenta
         lbLikes.text = "Likes: \(country.likes)" // Corregir el texto del label de los likes
-
+        
         // Configurar el botón para que navegue a la capital
+        btCapital.setTitle(country.capital, for: .normal) // Configurar el título del botón con el nombre de la capital
         btCapital.addTarget(self, action: #selector(didTapCapitalButton), for: .touchUpInside)
     }
     
