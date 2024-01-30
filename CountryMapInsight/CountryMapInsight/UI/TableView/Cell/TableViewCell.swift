@@ -8,10 +8,12 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    @IBOutlet weak var lbCountry: UILabel!
-    @IBOutlet weak var lbLikes: UILabel!
-    @IBOutlet weak var btCapital: UIButton!
+    @IBOutlet weak var lbCountry: UILabel!  // Etiqueta para mostrar el nombre del país
+    @IBOutlet weak var lbLikes: UILabel!  // Etiqueta para mostrar el número de likes
+    @IBOutlet weak var btCapital: UIButton!  // Botón para la capital del país
     
+    // Acción del botón para la capital del país
     @IBAction func tapBtCapital(_ sender: Any) {
+        // Aquí se maneja la acción del botón
     }
 }

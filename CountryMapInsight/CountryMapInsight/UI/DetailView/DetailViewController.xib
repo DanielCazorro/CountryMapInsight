@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="btLikes" destination="bJQ-Oa-gsz" id="lvW-kw-RG9"/>
                 <outlet property="lbName" destination="mAX-cd-h7G" id="aIy-cz-t1Q"/>
-                <outlet property="mvMap" destination="0MZ-GJ-XcM" id="L3q-6g-OTs"/>
+                <outlet property="mvMap" destination="0MZ-GJ-XcM" id="jl8-Mg-cnt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
