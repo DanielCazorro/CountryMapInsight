@@ -12,9 +12,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var lbLikes: UILabel!
     @IBOutlet weak var btCapital: UIButton!
     
-    var tapBtCapitalAction: (() -> Void)?
-    
     @IBAction func tapBtCapital(_ sender: Any) {
-        tapBtCapitalAction?()
     }
 }
