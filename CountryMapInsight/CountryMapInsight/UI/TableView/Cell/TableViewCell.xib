@@ -16,12 +16,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="626" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
-                        <rect key="frame" x="8" y="60.000000000000007" width="61" height="20.333333333333336"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-51-S0a">
                         <rect key="frame" x="525" y="53" width="77" height="34.333333333333343"/>
                         <state key="normal" title="Button"/>
@@ -30,6 +24,12 @@
                             <action selector="tapBtCapital:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Ay-b0-05v"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
+                        <rect key="frame" x="8" y="60.000000000000007" width="61" height="20.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="O2V-51-S0a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ALE-UV-c3B"/>

@@ -13,19 +13,21 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var lbCountry: UILabel!
     @IBOutlet weak var btCapital: UIButton!
     
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Configuración inicial de la celda al cargar desde el archivo XIB
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
+        // Configuración adicional cuando la celda es seleccionada
     }
     
     // MARK: - IBAction
     @IBAction func tapBtCapital(_ sender: Any) {
+        // Método invocado cuando se presiona el botón de la celda
+        // Se podría implementar lógica para manejar la acción del botón aquí
     }
     
 }
