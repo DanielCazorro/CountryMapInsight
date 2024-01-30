@@ -30,18 +30,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
+                        <rect key="frame" x="459" y="59.666666666666657" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="O2V-51-S0a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ALE-UV-c3B"/>
+                    <constraint firstItem="O2V-51-S0a" firstAttribute="leading" secondItem="pdt-ZI-2xZ" secondAttribute="trailing" constant="24" id="ISZ-kw-DU4"/>
                     <constraint firstItem="pRY-pz-rIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="QOu-sk-bsQ"/>
                     <constraint firstAttribute="trailing" secondItem="O2V-51-S0a" secondAttribute="trailing" constant="24" id="UxA-5g-GRf"/>
                     <constraint firstItem="pRY-pz-rIE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WWz-5A-ReS"/>
+                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uhs-7J-Zi6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btCapital" destination="O2V-51-S0a" id="GlY-zp-GpK"/>
                 <outlet property="lbCountry" destination="pRY-pz-rIE" id="Zut-Q8-uuV"/>
+                <outlet property="lbLikes" destination="pdt-ZI-2xZ" id="txi-xm-Qj5"/>
             </connections>
             <point key="canvasLocation" x="245.80152671755724" y="53.521126760563384"/>
         </tableViewCell>

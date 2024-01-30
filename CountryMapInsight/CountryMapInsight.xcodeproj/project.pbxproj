@@ -19,6 +19,8 @@
 		2C1A5C292B610EF000B2DCCD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C272B610EF000B2DCCD /* DetailViewController.swift */; };
 		2C1A5C2A2B610EF000B2DCCD /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1A5C282B610EF000B2DCCD /* DetailViewController.xib */; };
 		2C1A5C2F2B610F1300B2DCCD /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1A5C2E2B610F1300B2DCCD /* DetailViewModel.swift */; };
+		2C2A7D512B6908A3007DB799 /* TableViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A7D502B6908A3007DB799 /* TableViewDataManager.swift */; };
+		2C2A7D542B6909DC007DB799 /* TableViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */; };
 		2C4CF3DF2B68E760008F2314 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4CF3DE2B68E760008F2314 /* CountryModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		2C1A5C272B610EF000B2DCCD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2C1A5C282B610EF000B2DCCD /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		2C1A5C2E2B610F1300B2DCCD /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		2C2A7D502B6908A3007DB799 /* TableViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataManager.swift; sourceTree = "<group>"; };
+		2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWireframe.swift; sourceTree = "<group>"; };
 		2C4CF3DE2B68E760008F2314 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,35 +104,13 @@
 			isa = PBXGroup;
 			children = (
 				2C1A5C212B6108EE00B2DCCD /* Cell */,
-				2C1A5C1C2B6106CF00B2DCCD /* View */,
-				2C1A5C1D2B6106D600B2DCCD /* ViewController */,
-				2C1A5C1E2B6106DF00B2DCCD /* ViewModel */,
+				2C1A5C152B61040600B2DCCD /* TableViewController.swift */,
+				2C1A5C162B61040600B2DCCD /* TableViewController.xib */,
+				2C1A5C1F2B6106E900B2DCCD /* TableViewModel.swift */,
+				2C2A7D502B6908A3007DB799 /* TableViewDataManager.swift */,
+				2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */,
 			);
 			path = TableView;
-			sourceTree = "<group>";
-		};
-		2C1A5C1C2B6106CF00B2DCCD /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2C1A5C162B61040600B2DCCD /* TableViewController.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2C1A5C1D2B6106D600B2DCCD /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				2C1A5C152B61040600B2DCCD /* TableViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		2C1A5C1E2B6106DF00B2DCCD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2C1A5C1F2B6106E900B2DCCD /* TableViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2C1A5C212B6108EE00B2DCCD /* Cell */ = {
@@ -271,7 +253,9 @@
 				2C1A5C2F2B610F1300B2DCCD /* DetailViewModel.swift in Sources */,
 				2C1A5C042B6103D200B2DCCD /* SceneDelegate.swift in Sources */,
 				2C1A5C292B610EF000B2DCCD /* DetailViewController.swift in Sources */,
+				2C2A7D542B6909DC007DB799 /* TableViewWireframe.swift in Sources */,
 				2C1A5C172B61040600B2DCCD /* TableViewController.swift in Sources */,
+				2C2A7D512B6908A3007DB799 /* TableViewDataManager.swift in Sources */,
 				2C1A5C202B6106E900B2DCCD /* TableViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
