@@ -9,41 +9,58 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="140" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="CountryMapInsight" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="626" height="140"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableViewCell" rowHeight="77" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="CountryMapInsight" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="655" height="77"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="626" height="140"/>
+                <rect key="frame" x="0.0" y="0.0" width="655" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-51-S0a">
-                        <rect key="frame" x="525" y="53" width="77" height="34.333333333333343"/>
+                        <rect key="frame" x="531" y="19" width="80" height="34"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="34" id="88V-m7-gaT"/>
+                            <constraint firstAttribute="height" constant="34" id="L3B-JH-Tdm"/>
+                            <constraint firstAttribute="width" constant="80" id="L8d-zM-TOp"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="88" id="acc-h4-1UY"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="bCi-V5-hHO"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="mAs-eE-dFe"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="34" id="p63-ir-7eE"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="34" id="pY0-8j-wSJ"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="34" id="uoc-kg-Jiq"/>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="88" id="w8g-Gf-aGI"/>
+                        </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="filled" title="Capital"/>
-                        <connections>
-                            <action selector="tapBtCapital:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8Ay-b0-05v"/>
-                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
-                        <rect key="frame" x="8" y="60.000000000000007" width="61" height="20.333333333333336"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
+                        <rect key="frame" x="16" y="8" width="86.333333333333329" height="56"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
-                        <rect key="frame" x="459" y="59.666666666666657" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
+                        <rect key="frame" x="110.33333333333334" y="28" width="412.66666666666663" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="W4l-My-aJM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="O2V-51-S0a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ALE-UV-c3B"/>
-                    <constraint firstItem="O2V-51-S0a" firstAttribute="leading" secondItem="pdt-ZI-2xZ" secondAttribute="trailing" constant="24" id="ISZ-kw-DU4"/>
-                    <constraint firstItem="pRY-pz-rIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="QOu-sk-bsQ"/>
-                    <constraint firstAttribute="trailing" secondItem="O2V-51-S0a" secondAttribute="trailing" constant="24" id="UxA-5g-GRf"/>
-                    <constraint firstItem="pRY-pz-rIE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WWz-5A-ReS"/>
-                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uhs-7J-Zi6"/>
+                    <constraint firstItem="O2V-51-S0a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Aoo-Cl-nNF"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MQe-bQ-973"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="O2V-51-S0a" secondAttribute="trailing" constant="24" id="Nec-Ne-Nyf"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VWE-Vh-0BN"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZHQ-YP-IhX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="O2V-51-S0a" secondAttribute="bottom" constant="8" id="fit-AD-fNA"/>
+                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hVO-pf-HHV"/>
+                    <constraint firstItem="O2V-51-S0a" firstAttribute="leading" secondItem="pdt-ZI-2xZ" secondAttribute="trailing" constant="8" id="i0W-1I-TEE"/>
+                    <constraint firstItem="O2V-51-S0a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iTF-re-Yn8"/>
+                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="leading" secondItem="pRY-pz-rIE" secondAttribute="trailing" constant="8" id="qei-cS-tS8"/>
+                    <constraint firstAttribute="bottom" secondItem="pRY-pz-rIE" secondAttribute="bottom" constant="8" id="z53-bP-LA8"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -52,7 +69,7 @@
                 <outlet property="lbCountry" destination="pRY-pz-rIE" id="Zut-Q8-uuV"/>
                 <outlet property="lbLikes" destination="pdt-ZI-2xZ" id="txi-xm-Qj5"/>
             </connections>
-            <point key="canvasLocation" x="245.80152671755724" y="53.521126760563384"/>
+            <point key="canvasLocation" x="267.93893129770993" y="30.633802816901412"/>
         </tableViewCell>
     </objects>
 </document>

@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="btLikes" destination="bJQ-Oa-gsz" id="lvW-kw-RG9"/>
                 <outlet property="lbName" destination="mAX-cd-h7G" id="aIy-cz-t1Q"/>
-                <outlet property="mvMap" destination="0MZ-GJ-XcM" id="L3q-6g-OTs"/>
+                <outlet property="mvMap" destination="0MZ-GJ-XcM" id="jl8-Mg-cnt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -36,12 +36,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJQ-Oa-gsz">
-                    <rect key="frame" x="294" y="347" width="75" height="44"/>
+                    <rect key="frame" x="325" y="347" width="44" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="AKE-n6-Fz5"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="m1s-7F-XIF"/>
+                        <constraint firstAttribute="width" constant="44" id="wVH-3V-5Fv"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                    <buttonConfiguration key="configuration" style="tinted" title="+"/>
                     <connections>
                         <action selector="btLikesTap:" destination="-1" eventType="touchUpInside" id="kyS-KS-v3c"/>
                     </connections>

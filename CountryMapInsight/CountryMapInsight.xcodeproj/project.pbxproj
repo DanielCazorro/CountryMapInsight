@@ -22,6 +22,7 @@
 		2C2A7D542B6909DC007DB799 /* TableViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */; };
 		2C2A7D562B690CD6007DB799 /* DetailViewWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2A7D552B690CD6007DB799 /* DetailViewWireframe.swift */; };
 		2C4CF3DF2B68E760008F2314 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4CF3DE2B68E760008F2314 /* CountryModel.swift */; };
+		2C57A0962B691CA600F30210 /* TableViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C57A0952B691CA600F30210 /* TableViewDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewWireframe.swift; sourceTree = "<group>"; };
 		2C2A7D552B690CD6007DB799 /* DetailViewWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewWireframe.swift; sourceTree = "<group>"; };
 		2C4CF3DE2B68E760008F2314 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
+		2C57A0952B691CA600F30210 /* TableViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				2C1A5C152B61040600B2DCCD /* TableViewController.swift */,
 				2C1A5C162B61040600B2DCCD /* TableViewController.xib */,
 				2C1A5C1F2B6106E900B2DCCD /* TableViewModel.swift */,
+				2C57A0952B691CA600F30210 /* TableViewDataManager.swift */,
 				2C2A7D532B6909DC007DB799 /* TableViewWireframe.swift */,
 			);
 			path = TableView;
@@ -233,6 +236,7 @@
 				2C2A7D542B6909DC007DB799 /* TableViewWireframe.swift in Sources */,
 				2C1A5C172B61040600B2DCCD /* TableViewController.swift in Sources */,
 				2C1A5C202B6106E900B2DCCD /* TableViewModel.swift in Sources */,
+				2C57A0962B691CA600F30210 /* TableViewDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
