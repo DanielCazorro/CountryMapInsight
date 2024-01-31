@@ -47,8 +47,15 @@ extension TableViewController: UITableViewDataSource {
             let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
             detailVC.country = country
             detailVC.isCapitalDetail = false // Indicar que se muestra el detalle del país
+            
+            // Configurar el closure para actualizar los likes en la celda correspondiente
+            detailVC.didUpdateLikes = { [weak self] likes in
+                self?.updateLikes(likes, at: indexPath)
+            }
+            
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
+        
         
         // Manejar la selección del botón de la capital
         cell.didSelectCapitalButton = { [weak self] in
@@ -57,10 +64,25 @@ extension TableViewController: UITableViewDataSource {
             let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
             detailVC.country = country
             detailVC.isCapitalDetail = true // Indicar que se muestra el detalle de la capital
+            
+            // Configurar el closure para actualizar los likes en la celda correspondiente
+            detailVC.didUpdateLikes = { [weak self] likes in
+                self?.updateLikes(likes, at: indexPath)
+            }
+            
             self.navigationController?.pushViewController(detailVC, animated: true)
         }
         
         return cell
+    }
+    
+    
+    func updateLikes(_ likes: Int, at indexPath: IndexPath) {
+        // Actualizar los likes en el modelo de datos
+        dataManager.countries[indexPath.row].likes = likes
+        
+        // Actualizar la celda correspondiente en la tabla
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 

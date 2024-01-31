@@ -10,6 +10,8 @@ import MapKit
 
 class DetailViewController: UIViewController {
 
+    var didUpdateLikes: ((Int) -> Void)?
+
     @IBOutlet weak var mvMap: MKMapView!
     @IBOutlet weak var lbName: UILabel!
     @IBOutlet weak var btLikes: UIButton!
@@ -59,5 +61,15 @@ class DetailViewController: UIViewController {
 
 
     @IBAction func btLikesTap(_ sender: Any) {
+        guard var country = country else { return }
+        
+        // Incrementar el contador de likes
+        country.likes += 1
+        
+        // Actualizar la etiqueta con el nuevo número de likes
+        //lbLikes.text = "Likes: \(country.likes)"
+        
+        // Llamar al closure para informar la actualización de likes
+        didUpdateLikes?(country.likes)
     }
 }
