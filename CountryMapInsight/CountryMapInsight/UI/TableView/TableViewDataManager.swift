@@ -24,7 +24,7 @@ class TableViewDataManager {
         let italy = CountryModel(name: "Italy", capital: "Rome", countryCoordinates: CLLocationCoordinate2D(latitude: 41.902782, longitude: 12.496366), capitalCoordinates: CLLocationCoordinate2D(latitude: 41.902782, longitude: 12.496366))
         
         // Alemania
-        let germany = CountryModel(name: "Germany", capital: "Berlin", countryCoordinates: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954), capitalCoordinates: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
+        let germany = CountryModel(name: "Germany", capital: "Berlin", countryCoordinates: CLLocationCoordinate2D(latitude: 42.520008, longitude: 13.404954), capitalCoordinates: CLLocationCoordinate2D(latitude: 52.520008, longitude: 13.404954))
         
         // Reino Unido
         let uk = CountryModel(name: "United Kingdom", capital: "London", countryCoordinates: CLLocationCoordinate2D(latitude: 51.507351, longitude: -0.127758), capitalCoordinates: CLLocationCoordinate2D(latitude: 51.507351, longitude: -0.127758))
