@@ -15,6 +15,8 @@ class TableViewController: UIViewController {
     // Instancia de TableViewDataManager para gestionar los datos de la tabla
     let dataManager = TableViewDataManager()
     
+    private var viewModel: TableViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,10 @@ class TableViewController: UIViewController {
         
         // Registra la celda personalizada
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+    }
+    
+    func set(viewModel: TableViewModel) {
+        self.viewModel = viewModel
     }
 }
 

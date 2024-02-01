@@ -9,5 +9,22 @@ import Foundation
 
 class TableViewModel {
    
+    private var dataManager: TableViewDataManager
+    
+    private var countries: [CountryModel] { dataManager.countries}
+    
+    init(dataManager: TableViewDataManager) {
+        self.dataManager = dataManager
+    }
+    
+    func countCountries() -> Int {
+        countries.count
+    }
+    
+    func getCountry(for row: Int) -> CountryModel {
+        countries[row]
+    }
+                          
+    
 }
 
