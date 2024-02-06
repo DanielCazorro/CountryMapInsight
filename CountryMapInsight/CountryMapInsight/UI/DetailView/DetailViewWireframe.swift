@@ -15,6 +15,7 @@ class DetailViewWireframe {
     var country: CountryModel?
     var showCountry: Bool
     var closure: (() -> Void)? // Definir el cierre como un opcional
+    var likeButtonHandler: (() -> Void)?
     
     init(country: CountryModel? = nil, showCountry: Bool, closure: (() -> Void)? = nil) {
         self.country = country

@@ -27,4 +27,5 @@ class TableViewModel {
     func tap(completion: @escaping () -> Void) {
         countries.first?.likes += 1
         completion() // Llamar al closure para notificar la acción
-    }}
+    }
+}

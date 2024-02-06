@@ -26,6 +26,14 @@ class TableViewCell: UITableViewCell {
         
         // Configurar el botón para que navegue a la capital
         btCapital.setTitle(country?.capital ?? "", for: .normal) // Configurar el título del botón con el nombre de la capital
+        
+        btCapital.sizeToFit()
+        btCapital.titleLabel?.adjustsFontSizeToFitWidth = true
+        btCapital.titleLabel?.minimumScaleFactor = 0.5
+        
+        // Asegurarse de que la celda se actualice correctamente
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
 }

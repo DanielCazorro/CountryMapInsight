@@ -29,6 +29,7 @@ class DetailViewModel {
     func tapLike(completion: () -> Void) {
         country?.likes += 1
         completion() // Llamar al closure para notificar la acción
+
     }
     
     func getLikes() -> Int {

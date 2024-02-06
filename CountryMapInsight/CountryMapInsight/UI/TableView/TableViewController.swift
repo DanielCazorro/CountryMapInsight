@@ -12,6 +12,7 @@ class TableViewController: UIViewController {
     
     // MARK: - Properties
     private var viewModel: TableViewModel?
+    private let detailViewWireframe = DetailViewWireframe(showCountry: false)
     
     // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
@@ -20,6 +21,10 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initiateTable()
+        // Asigna el closure para manejar el evento del botón de "Me gusta"
+        detailViewWireframe.likeButtonHandler = { [weak self] in
+            self?.updateLikes()
+        }
     }
     
     // MARK: - Functions
@@ -39,7 +44,14 @@ class TableViewController: UIViewController {
     
     @objc func connected(sender: UIButton) {
         let country = viewModel?.getCountry(for: sender.tag)
-        DetailViewWireframe(country: country, showCountry: false, closure: { [weak self] in self?.viewModel?.tap(completion: {}) }).push(navigation: navigationController)
+        detailViewWireframe.showCountry = false
+        detailViewWireframe.country = country // Asigna el país al detalle antes de mostrarlo
+        detailViewWireframe.push(navigation: navigationController)
+    }
+    
+    func updateLikes() {
+        // Actualiza el valor de los likes en la vista de tabla
+        tableView.reloadData() // Actualiza la vista de tabla
     }
 }
 
@@ -63,16 +75,14 @@ extension TableViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    //func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //    80
-   // }
 }
 
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let country = viewModel?.getCountry(for: indexPath.row)
-        DetailViewWireframe(country: country, showCountry: true, closure: { [weak self] in self?.viewModel?.tap(completion: {}) }).push(navigation: navigationController)
+        detailViewWireframe.showCountry = true
+        detailViewWireframe.country = country // Asigna el país al detalle antes de mostrarlo
+        detailViewWireframe.push(navigation: navigationController)
     }
 }
