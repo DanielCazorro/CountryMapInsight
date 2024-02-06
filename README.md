@@ -16,6 +16,8 @@ CountryMapInsight es una aplicación móvil que te permite explorar información
 <img src="screenshots/screenshot2.png" width="150"style="margin-right: 10px;">
 <img src="screenshots/screenshot3.png" width="150"style="margin-right: 10px;">
 </div>
+
+
 ## Instalación
 
 Para probar la aplicación en tu dispositivo iOS, sigue estos pasos:
