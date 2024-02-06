@@ -26,5 +26,14 @@ class DetailViewModel {
         showCountry ? country?.countryCoordinates : country?.capitalCoordinates
     }
     
+    func tapLike(completion: () -> Void) {
+        country?.likes += 1
+        completion() // Llamar al closure para notificar la acción
+    }
+    
+    func getLikes() -> Int {
+            country?.likes ?? 0
+        }
+    
 }
 

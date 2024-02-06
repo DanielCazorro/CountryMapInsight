@@ -31,11 +31,20 @@ class DetailViewController: UIViewController {
     
     func initLabel() {
         lbName.text = viewModel?.getName()
+        btLikes.setTitle("Likes: \(viewModel?.getLikes() ?? 0)", for: .normal)
     }
     
     func centerMap() {
         if let localization = viewModel?.getCoordenates() {
             mvMap.centerCoordinate = localization
+        }
+    }
+    
+    @IBAction func tapBTLike(_ sender: Any) {
+        viewModel?.tapLike {
+            DispatchQueue.main.async { [weak self] in
+                self?.btLikes.setTitle("Likes: \(self?.viewModel?.getLikes() ?? 0)", for: .normal)
+            }
         }
     }
     

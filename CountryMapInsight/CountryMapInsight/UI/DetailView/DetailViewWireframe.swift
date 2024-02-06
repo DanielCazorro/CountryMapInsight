@@ -14,10 +14,12 @@ class DetailViewWireframe {
     
     var country: CountryModel?
     var showCountry: Bool
+    var closure: (() -> Void)? // Definir el cierre como un opcional
     
-    init(country: CountryModel? = nil, showCountry: Bool) {
+    init(country: CountryModel? = nil, showCountry: Bool, closure: (() -> Void)? = nil) {
         self.country = country
         self.showCountry = showCountry
+        self.closure = closure
     }
     
     var viewController: DetailViewController {

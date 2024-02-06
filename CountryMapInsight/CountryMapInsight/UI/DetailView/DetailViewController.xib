@@ -45,7 +45,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="tinted" title="+"/>
                     <connections>
-                        <action selector="btLikesTap:" destination="-1" eventType="touchUpInside" id="kyS-KS-v3c"/>
+                        <action selector="tapBTLike:" destination="-1" eventType="touchUpInside" id="RsM-ch-Lrd"/>
                     </connections>
                 </button>
             </subviews>

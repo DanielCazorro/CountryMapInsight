@@ -39,7 +39,7 @@ class TableViewController: UIViewController {
     
     @objc func connected(sender: UIButton) {
         let country = viewModel?.getCountry(for: sender.tag)
-        DetailViewWireframe(country: country, showCountry: false).push(navigation: navigationController)
+        DetailViewWireframe(country: country, showCountry: false, closure: { [weak self] in self?.viewModel?.tap(completion: {}) }).push(navigation: navigationController)
     }
 }
 
@@ -63,13 +63,16 @@ extension TableViewController: UITableViewDataSource {
         
         return cell
     }
+    
+    //func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //    80
+   // }
 }
 
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let country = viewModel?.getCountry(for: indexPath.row)
-        DetailViewWireframe(country: country, showCountry: true).push(navigation: navigationController)
+        DetailViewWireframe(country: country, showCountry: true, closure: { [weak self] in self?.viewModel?.tap(completion: {}) }).push(navigation: navigationController)
     }
 }

@@ -8,10 +8,9 @@
 import Foundation
 
 class TableViewModel {
-   
     private var dataManager: TableViewDataManager
     
-    private var countries: [CountryModel] { dataManager.countries}
+    private var countries: [CountryModel] { dataManager.countries }
     
     init(dataManager: TableViewDataManager) {
         self.dataManager = dataManager
@@ -24,7 +23,8 @@ class TableViewModel {
     func getCountry(for row: Int) -> CountryModel {
         countries[row]
     }
-                          
     
-}
-
+    func tap(completion: @escaping () -> Void) {
+        countries.first?.likes += 1
+        completion() // Llamar al closure para notificar la acción
+    }}
