@@ -21,19 +21,17 @@ class TableViewCell: UITableViewCell {
     func updateCell(country: CountryModel?) {
         // Configurar la celda con los datos del país
         lbCountry.text = country?.name ?? ""
-        lbLikes.textColor = .magenta
-        lbLikes.text = String("Likes: \(country?.likes ?? 0)")
-        
-        // Configurar el botón para que navegue a la capital
         btCapital.setTitle(country?.capital ?? "", for: .normal) // Configurar el título del botón con el nombre de la capital
         
-        btCapital.sizeToFit()
-        btCapital.titleLabel?.adjustsFontSizeToFitWidth = true
-        btCapital.titleLabel?.minimumScaleFactor = 0.5
+        // Actualizar el número de likes
+        updateLikesLabel(likes: country?.likes ?? 0)
         
         // Asegurarse de que la celda se actualice correctamente
         setNeedsLayout()
         layoutIfNeeded()
     }
     
-}
+    private func updateLikesLabel(likes: Int) {
+        // Actualizar el número de likes en la etiqueta
+        lbLikes.text = "Likes: \(likes)"
+    }}

@@ -9,13 +9,21 @@ import Foundation
 import MapKit
 
 class DetailViewModel {
-
+    
     private let country: CountryModel?
     private let showCountry: Bool
+    private let tableViewModel: TableViewModel = TableViewModel(dataManager: TableViewDataManager())
+    
+    var likeUpdateHandler: (() -> Void)?
     
     init(country: CountryModel?, showCountry: Bool) {
         self.country = country
         self.showCountry = showCountry
+    }
+    
+    // Functions
+    func getLikes() -> Int {
+        country?.likes ?? 0
     }
     
     func getName() -> String? {
@@ -28,13 +36,7 @@ class DetailViewModel {
     
     func tapLike(completion: () -> Void) {
         country?.likes += 1
-        completion() // Llamar al closure para notificar la acción
-
+        completion()
+        likeUpdateHandler?()
     }
-    
-    func getLikes() -> Int {
-            country?.likes ?? 0
-        }
-    
 }
-

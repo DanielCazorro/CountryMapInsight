@@ -17,16 +17,15 @@ class DetailViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel: DetailViewModel?
-    var likeButtonHandler: (() -> Void)?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initLabel()
         centerMap()
-        configuration()
     }
     
+    // MARK: - Funcions
     func set(viewModel: DetailViewModel) {
         self.viewModel = viewModel
     }
@@ -42,15 +41,12 @@ class DetailViewController: UIViewController {
         }
     }
     
-    func configuration() {
-        btLikes.sizeToFit()
-    }
-    
+    // MARK: - IBActions
     @IBAction func tapBTLike(_ sender: Any) {
         viewModel?.tapLike {
             DispatchQueue.main.async { [weak self] in
                 self?.btLikes.setTitle("Likes: \(self?.viewModel?.getLikes() ?? 0)", for: .normal)
-                self?.likeButtonHandler?()
+                self?.viewModel?.likeUpdateHandler?()
             }
         }
     }

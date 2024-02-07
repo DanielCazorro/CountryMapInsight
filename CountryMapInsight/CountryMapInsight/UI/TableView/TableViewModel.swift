@@ -8,14 +8,19 @@
 import Foundation
 
 class TableViewModel {
-    private var dataManager: TableViewDataManager
     
+    // Properties
+    private var dataManager: TableViewDataManager
     private var countries: [CountryModel] { dataManager.countries }
     
+    var likeUpdateHandler: (() -> Void)?
+    
+    // Initialization
     init(dataManager: TableViewDataManager) {
         self.dataManager = dataManager
     }
     
+    // Functions
     func countCountries() -> Int {
         countries.count
     }
@@ -24,8 +29,9 @@ class TableViewModel {
         countries[row]
     }
     
-    func tap(completion: @escaping () -> Void) {
-        countries.first?.likes += 1
-        completion() // Llamar al closure para notificar la acción
+    // FIXME: Implementar esta función para aumentar los likes
+    func increaseLikes(for row: Int) {
+        countries[row].likes += 1
+        likeUpdateHandler?()
     }
 }

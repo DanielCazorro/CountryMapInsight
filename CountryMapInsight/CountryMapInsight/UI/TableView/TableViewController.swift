@@ -21,9 +21,17 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initiateTable()
-        // Asigna el closure para manejar el evento del botón de "Me gusta"
-        detailViewWireframe.likeButtonHandler = { [weak self] in
+        
+        // Configurar el closure de actualización de likes en el TableViewModel
+        viewModel?.likeUpdateHandler = { [weak self] in
             self?.updateLikes()
+        }
+
+        // Configura el likeUpdateHandler en el DetailViewModel
+        if let detailViewController = detailViewWireframe.viewController as? DetailViewController {
+            detailViewController.viewModel?.likeUpdateHandler = { [weak self] in
+                self?.updateLikes() // Actualiza la vista de tabla cuando se notifica sobre el cambio en los likes desde el DetailViewModel
+            }
         }
     }
     
@@ -38,6 +46,12 @@ class TableViewController: UIViewController {
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     }
     
+    private func updateLikes() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func set(viewModel: TableViewModel) {
         self.viewModel = viewModel
     }
@@ -47,11 +61,6 @@ class TableViewController: UIViewController {
         detailViewWireframe.showCountry = false
         detailViewWireframe.country = country // Asigna el país al detalle antes de mostrarlo
         detailViewWireframe.push(navigation: navigationController)
-    }
-    
-    func updateLikes() {
-        // Actualiza el valor de los likes en la vista de tabla
-        tableView.reloadData() // Actualiza la vista de tabla
     }
 }
 
@@ -63,8 +72,9 @@ extension TableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as? TableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "TableViewCell", for: indexPath)as? TableViewCell
+        else {
             return UITableViewCell()
         }
         

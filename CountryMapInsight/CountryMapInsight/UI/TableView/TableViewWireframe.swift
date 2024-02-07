@@ -10,12 +10,13 @@ import UIKit
 class TableViewWireframe {
     
     // MARK: - Properties
-    
      var viewController: TableViewController {
         // Generating module components
         let viewController = TableViewController()
+         
         let dataManager: TableViewDataManager = createDataManager()
         let viewModel: TableViewModel = createViewModel(with: dataManager)
+         
         viewController.set(viewModel: viewModel)
         return viewController
     }
