@@ -16,43 +16,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="655" height="77"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-51-S0a">
-                        <rect key="frame" x="539" y="19" width="88" height="34"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="34" id="L3B-JH-Tdm"/>
-                            <constraint firstAttribute="width" constant="88" id="L8d-zM-TOp"/>
-                        </constraints>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="filled" title="Capital"/>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
-                        <rect key="frame" x="16" y="8" width="86.333333333333329" height="56"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
+                        <rect key="frame" x="16" y="16" width="431" height="44"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
-                        <rect key="frame" x="110.33333333333334" y="28" width="420.66666666666663" height="16"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="16" id="W4l-My-aJM"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-V0-366">
+                        <rect key="frame" x="463" y="16" width="176" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="x0f-Js-gHk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-51-S0a">
+                                <rect key="frame" x="72" y="0.0" width="104" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="LNg-vS-StD"/>
+                                    <constraint firstAttribute="height" constant="44" id="q08-yx-n6l"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Capital">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="O2V-51-S0a" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="Aoo-Cl-nNF"/>
-                    <constraint firstItem="pRY-pz-rIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="MQe-bQ-973"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="O2V-51-S0a" secondAttribute="trailing" constant="8" id="Nec-Ne-Nyf"/>
-                    <constraint firstItem="pRY-pz-rIE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="VWE-Vh-0BN"/>
-                    <constraint firstItem="pRY-pz-rIE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZHQ-YP-IhX"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="O2V-51-S0a" secondAttribute="bottom" constant="8" id="fit-AD-fNA"/>
-                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hVO-pf-HHV"/>
-                    <constraint firstItem="O2V-51-S0a" firstAttribute="leading" secondItem="pdt-ZI-2xZ" secondAttribute="trailing" constant="8" id="i0W-1I-TEE"/>
-                    <constraint firstItem="O2V-51-S0a" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="iTF-re-Yn8"/>
-                    <constraint firstItem="pdt-ZI-2xZ" firstAttribute="leading" secondItem="pRY-pz-rIE" secondAttribute="trailing" constant="8" id="qei-cS-tS8"/>
-                    <constraint firstAttribute="bottom" secondItem="pRY-pz-rIE" secondAttribute="bottom" constant="8" id="z53-bP-LA8"/>
+                    <constraint firstAttribute="bottom" secondItem="oTc-V0-366" secondAttribute="bottom" constant="16" id="1Eg-f7-Z4u"/>
+                    <constraint firstItem="oTc-V0-366" firstAttribute="leading" secondItem="pRY-pz-rIE" secondAttribute="trailing" constant="16" id="4Y8-tI-dy1"/>
+                    <constraint firstAttribute="bottom" secondItem="pRY-pz-rIE" secondAttribute="bottom" constant="16" id="Mjc-9N-8yU"/>
+                    <constraint firstItem="oTc-V0-366" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="QNs-UJ-peC"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="SJz-eh-hD3"/>
+                    <constraint firstItem="oTc-V0-366" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Tx9-ey-f0S"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="crI-af-HAY"/>
+                    <constraint firstAttribute="trailing" secondItem="oTc-V0-366" secondAttribute="trailing" constant="16" id="jaM-Ti-CgA"/>
+                    <constraint firstItem="pRY-pz-rIE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="xg3-tb-2Pw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

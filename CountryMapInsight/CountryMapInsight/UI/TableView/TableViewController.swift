@@ -22,6 +22,19 @@ class TableViewController: UIViewController {
         super.viewDidLoad()
         initiateTable()
         
+        // Configurar el título de la tabla
+        let tableTitleLabel = UILabel()
+        tableTitleLabel.text = "Países y Capitales"
+        tableTitleLabel.textAlignment = .center
+        tableTitleLabel.font = UIFont.boldSystemFont(ofSize: 20) // Puedes ajustar el tamaño de fuente según lo desees
+        tableView.tableHeaderView = tableTitleLabel
+        
+        if let tableHeaderView = tableView.tableHeaderView {
+            print("Table Header View Size: \(tableHeaderView.frame.size)")
+        } else {
+            print("Table Header View is nil")
+        }
+        
         // Configurar el closure de actualización de likes en el TableViewModel
         viewModel?.likeUpdateHandler = { [weak self] in
             self?.updateLikes()
