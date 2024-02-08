@@ -8,27 +8,30 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    // MARK: - IBOutlet
     @IBOutlet weak var lbCountry: UILabel!  // Etiqueta para mostrar el nombre del país
     @IBOutlet weak var lbLikes: UILabel!  // Etiqueta para mostrar el número de likes
     @IBOutlet weak var btCapital: UIButton!  // Botón para la capital del país
     
-    // Closure para manejar la selección de la celda
-    var didSelectCell: (() -> Void)?
-    // Nuevo closure para manejar la selección del botón de la capital
-    var didSelectCapitalButton: (() -> Void)?
+    override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
     
-    func configure(with country: CountryModel) {
+    func updateCell(country: CountryModel?) {
         // Configurar la celda con los datos del país
-        lbCountry.text = country.name
-        lbLikes.textColor = .magenta
-        lbLikes.text = "Likes: \(country.likes)" // Corregir el texto del label de los likes
+        lbCountry.text = country?.name ?? ""
+        btCapital.setTitle(country?.capital ?? "", for: .normal) // Configurar el título del botón con el nombre de la capital
         
-        // Configurar el botón para que navegue a la capital
-        btCapital.setTitle(country.capital, for: .normal) // Configurar el título del botón con el nombre de la capital
-        btCapital.addTarget(self, action: #selector(didTapCapitalButton), for: .touchUpInside)
+        // Actualizar el número de likes
+        updateLikesLabel(likes: country?.likes ?? 0)
+        
+        // Asegurarse de que la celda se actualice correctamente
+        setNeedsLayout()
+        layoutIfNeeded()
     }
     
-    @objc func didTapCapitalButton() {
-        didSelectCapitalButton?()  // Llamar al closure cuando se seleccione el botón de la capital
-    }
-}
+    private func updateLikesLabel(likes: Int) {
+        // Actualizar el número de likes en la etiqueta
+        lbLikes.text = "Likes: \(likes)"
+    }}

@@ -10,14 +10,34 @@ import MapKit
 
 class TableViewController: UIViewController {
     
+    // MARK: - Properties
+    private var viewModel: TableViewModel?
+    private let detailViewWireframe = DetailViewWireframe(showCountry: false)
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!
     
-    // Instancia de TableViewDataManager para gestionar los datos de la tabla
-    let dataManager = TableViewDataManager()
-    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        initiateTable()
         
+        // Configurar el closure de actualización de likes en el TableViewModel
+        viewModel?.likeUpdateHandler = { [weak self] in
+            self?.updateLikes()
+        }
+
+        // Configura el likeUpdateHandler en el DetailViewModel
+        if let detailViewController = detailViewWireframe.viewController as? DetailViewController {
+            detailViewController.viewModel?.likeUpdateHandler = { [weak self] in
+                self?.updateLikes() // Actualiza la vista de tabla cuando se notifica sobre el cambio en los likes desde el DetailViewModel
+            }
+        }
+    }
+    
+    // MARK: - Functions
+    /// Inicializa y configura la tabla y la celda
+    func initiateTable() {
         // Configurar la tabla
         tableView.dataSource = self
         tableView.delegate = self
@@ -25,74 +45,54 @@ class TableViewController: UIViewController {
         // Registra la celda personalizada
         tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
     }
+    
+    private func updateLikes() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func set(viewModel: TableViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    @objc func connected(sender: UIButton) {
+        let country = viewModel?.getCountry(for: sender.tag)
+        detailViewWireframe.showCountry = false
+        detailViewWireframe.country = country // Asigna el país al detalle antes de mostrarlo
+        detailViewWireframe.push(navigation: navigationController)
+    }
 }
 
 // MARK: - UITableViewDataSource
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataManager.countries.count
+        
+        viewModel?.countCountries() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        let country = dataManager.countries[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "TableViewCell", for: indexPath)as? TableViewCell
+        else {
+            return UITableViewCell()
+        }
         
         // Configurar la celda con los datos del país
-        cell.configure(with: country)
-        
-        // Manejar la selección de la celda
-        cell.didSelectCell = { [weak self] in
-            guard let self = self else { return }
-            
-            let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
-            detailVC.country = country
-            detailVC.isCapitalDetail = false // Indicar que se muestra el detalle del país
-            
-            // Configurar el closure para actualizar los likes en la celda correspondiente
-            detailVC.didUpdateLikes = { [weak self] likes in
-                self?.updateLikes(likes, at: indexPath)
-            }
-            
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
-        
-        
-        // Manejar la selección del botón de la capital
-        cell.didSelectCapitalButton = { [weak self] in
-            guard let self = self else { return }
-            
-            let detailVC = DetailViewController(nibName: "DetailViewController", bundle: nil)
-            detailVC.country = country
-            detailVC.isCapitalDetail = true // Indicar que se muestra el detalle de la capital
-            
-            // Configurar el closure para actualizar los likes en la celda correspondiente
-            detailVC.didUpdateLikes = { [weak self] likes in
-                self?.updateLikes(likes, at: indexPath)
-            }
-            
-            self.navigationController?.pushViewController(detailVC, animated: true)
-        }
+        cell.updateCell(country: viewModel?.getCountry(for: indexPath.row))
+        cell.btCapital.addTarget(self, action: #selector(connected(sender:)), for: .touchUpInside)
+        cell.btCapital.tag = indexPath.row
         
         return cell
-    }
-    
-    
-    func updateLikes(_ likes: Int, at indexPath: IndexPath) {
-        // Actualizar los likes en el modelo de datos
-        dataManager.countries[indexPath.row].likes = likes
-        
-        // Actualizar la celda correspondiente en la tabla
-        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
 // MARK: - UITableViewDelegate
 extension TableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? TableViewCell else {
-            return
-        }
-        
-        cell.didSelectCell?()
+        let country = viewModel?.getCountry(for: indexPath.row)
+        detailViewWireframe.showCountry = true
+        detailViewWireframe.country = country // Asigna el país al detalle antes de mostrarlo
+        detailViewWireframe.push(navigation: navigationController)
     }
 }

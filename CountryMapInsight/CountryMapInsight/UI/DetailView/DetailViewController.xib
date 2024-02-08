@@ -36,16 +36,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJQ-Oa-gsz">
-                    <rect key="frame" x="325" y="347" width="44" height="44"/>
+                    <rect key="frame" x="273" y="347" width="96" height="48"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="AKE-n6-Fz5"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="m1s-7F-XIF"/>
-                        <constraint firstAttribute="width" constant="44" id="wVH-3V-5Fv"/>
+                        <constraint firstAttribute="height" constant="48" id="AKE-n6-Fz5"/>
+                        <constraint firstAttribute="width" constant="96" id="wVH-3V-5Fv"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="tinted" title="+"/>
                     <connections>
-                        <action selector="btLikesTap:" destination="-1" eventType="touchUpInside" id="kyS-KS-v3c"/>
+                        <action selector="tapBTLike:" destination="-1" eventType="touchUpInside" id="RsM-ch-Lrd"/>
                     </connections>
                 </button>
             </subviews>
