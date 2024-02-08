@@ -65,9 +65,13 @@ class TableViewDataManager {
 
         // Mexico
         let mexico = CountryModel(name: "Mexico", capital: "Mexico City", countryCoordinates: CLLocationCoordinate2D(latitude: 19.432608, longitude: -99.133209), capitalCoordinates: CLLocationCoordinate2D(latitude: 19.432608, longitude: -99.133209), likes: 0)
+        
+        
+        // Namek
+        let namek = CountryModel(name: "Namek: El gran planeta verde donde las esferas de dragón invocaban a Polunga", capital: "Freezer very crazy fue allí por ellas, pero goku se volvió mas crazy como He-man y lo convirtió cual palomita en microondas", countryCoordinates: CLLocationCoordinate2D(latitude: 19.432608, longitude: -99.133209), capitalCoordinates: CLLocationCoordinate2D(latitude: 19.432608, longitude: -99.133209), likes: 0)
 
         // Agregar los países al array
-        countries += [australia, canada, brazil, china, russia, india, japan, southAfrica, argentina, mexico]
+        countries += [australia, canada, brazil, china, russia, india, japan, southAfrica, argentina, mexico, namek]
 
     }
 }

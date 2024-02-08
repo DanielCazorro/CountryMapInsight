@@ -23,6 +23,12 @@ class TableViewCell: UITableViewCell {
         lbCountry.text = country?.name ?? ""
         btCapital.setTitle(country?.capital ?? "", for: .normal) // Configurar el título del botón con el nombre de la capital
         
+        // Ajustar el número máximo de líneas del título del botón a 1 y truncar el texto si es necesario
+        DispatchQueue.main.async {
+            self.btCapital.titleLabel?.numberOfLines = 1
+            self.btCapital.titleLabel?.lineBreakMode = .byTruncatingTail
+        }
+        
         // Actualizar el número de likes
         updateLikesLabel(likes: country?.likes ?? 0)
         
