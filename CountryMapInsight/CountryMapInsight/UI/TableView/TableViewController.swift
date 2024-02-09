@@ -39,12 +39,12 @@ class TableViewController: UIViewController {
         viewModel?.likeUpdateHandler = { [weak self] in
             self?.updateLikes()
         }
-
+        
         // Configura el likeUpdateHandler en el DetailViewModel
-        if let detailViewController = detailViewWireframe.viewController as? DetailViewController {
-            detailViewController.viewModel?.likeUpdateHandler = { [weak self] in
-                self?.updateLikes() // Actualiza la vista de tabla cuando se notifica sobre el cambio en los likes desde el DetailViewModel
-            }
+        let detailViewController = detailViewWireframe.viewController
+        detailViewController.viewModel?.likeUpdateHandler = { [weak self] in
+            self?.updateLikes() // Actualiza la vista de tabla cuando se notifica sobre el cambio en los likes desde el DetailViewModel
+            
         }
     }
     
