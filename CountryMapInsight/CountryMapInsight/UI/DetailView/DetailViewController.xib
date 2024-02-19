@@ -30,7 +30,7 @@
                     <standardMapConfiguration key="preferredConfiguration"/>
                 </mapView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAX-cd-h7G">
-                    <rect key="frame" x="24" y="355" width="345" height="20.333333333333314"/>
+                    <rect key="frame" x="24" y="355" width="249" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                 <constraint firstItem="0MZ-GJ-XcM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="24" id="LFB-2g-IrD"/>
                 <constraint firstItem="bJQ-Oa-gsz" firstAttribute="top" secondItem="0MZ-GJ-XcM" secondAttribute="bottom" constant="24" id="Xp1-cP-ifn"/>
                 <constraint firstItem="mAX-cd-h7G" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="g49-QV-9OH"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mAX-cd-h7G" secondAttribute="trailing" constant="24" id="hP0-F7-3ez"/>
+                <constraint firstItem="bJQ-Oa-gsz" firstAttribute="leading" secondItem="mAX-cd-h7G" secondAttribute="trailing" id="hP0-F7-3ez"/>
                 <constraint firstItem="mAX-cd-h7G" firstAttribute="top" secondItem="0MZ-GJ-XcM" secondAttribute="bottom" constant="32" id="yic-br-dqM"/>
             </constraints>
             <point key="canvasLocation" x="68" y="20"/>
