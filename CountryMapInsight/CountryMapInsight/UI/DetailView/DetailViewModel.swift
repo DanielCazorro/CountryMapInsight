@@ -36,7 +36,7 @@ class DetailViewModel {
     
     func tapLike(completion: () -> Void) {
         country?.likes += 1
-        completion()
         likeUpdateHandler?()
+        completion()
     }
 }
