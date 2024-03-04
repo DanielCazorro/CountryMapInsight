@@ -17,16 +17,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Country" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRY-pz-rIE">
-                        <rect key="frame" x="16" y="16" width="431" height="44"/>
+                        <rect key="frame" x="16" y="16" width="431" height="45"/>
                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="oTc-V0-366">
-                        <rect key="frame" x="463" y="16" width="176" height="44"/>
+                        <rect key="frame" x="463" y="16" width="176" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdt-ZI-2xZ">
-                                <rect key="frame" x="0.0" y="0.0" width="56" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="56" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="x0f-Js-gHk"/>
                                 </constraints>
@@ -35,10 +35,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-51-S0a">
-                                <rect key="frame" x="72" y="0.0" width="104" height="44"/>
+                                <rect key="frame" x="72" y="0.0" width="104" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="LNg-vS-StD"/>
-                                    <constraint firstAttribute="height" constant="44" id="q08-yx-n6l"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Capital">
