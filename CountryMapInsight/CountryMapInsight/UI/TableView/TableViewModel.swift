@@ -28,10 +28,4 @@ class TableViewModel {
     func getCountry(for row: Int) -> CountryModel {
         countries[row]
     }
-    
-    // FIXME: Implementar esta función para aumentar los likes
-    func increaseLikes(for row: Int) {
-        countries[row].likes += 1
-        likeUpdateHandler?()
-    }
 }
