@@ -9,6 +9,9 @@ import UIKit
 
 class TableViewCell: UITableViewCell {
     
+    //MARK: - Properties
+    static let identifier = "TableViewCell"
+    
     // MARK: - IBOutlet
     @IBOutlet weak var lbCountry: UILabel!  // Etiqueta para mostrar el nombre del país
     @IBOutlet weak var lbLikes: UILabel!  // Etiqueta para mostrar el número de likes
@@ -22,12 +25,6 @@ class TableViewCell: UITableViewCell {
         // Configurar la celda con los datos del país
         lbCountry.text = country?.name ?? ""
         btCapital.setTitle(country?.capital ?? "", for: .normal) // Configurar el título del botón con el nombre de la capital
-        
-//        // Ajustar el número máximo de líneas del título del botón a 1 y truncar el texto si es necesario
-//        DispatchQueue.main.async {
-//            self.btCapital.titleLabel?.numberOfLines = 1
-//            self.btCapital.titleLabel?.lineBreakMode = .byTruncatingTail
-//        }
         
         // Actualizar el número de likes
         updateLikesLabel(likes: country?.likes ?? 0)

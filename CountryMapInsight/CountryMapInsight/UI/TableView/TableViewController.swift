@@ -21,31 +21,7 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initiateTable()
-        
-        // Configurar el título de la tabla
-        let tableTitleLabel = UILabel()
-        tableTitleLabel.text = "Países y Capitales"
-        tableTitleLabel.textAlignment = .center
-        tableTitleLabel.font = UIFont.boldSystemFont(ofSize: 20) // Puedes ajustar el tamaño de fuente según lo desees
-        tableView.tableHeaderView = tableTitleLabel
-        
-        if let tableHeaderView = tableView.tableHeaderView {
-            print("Table Header View Size: \(tableHeaderView.frame.size)")
-        } else {
-            print("Table Header View is nil")
-        }
-        
-        // Configurar el closure de actualización de likes en el TableViewModel
-        viewModel?.likeUpdateHandler = { [weak self] in
-            self?.updateLikes()
-        }
-        
-        // Configura el likeUpdateHandler en el DetailViewModel
-        let detailViewController = detailViewWireframe.viewController
-        detailViewController.viewModel?.likeUpdateHandler = { [weak self] in
-            self?.updateLikes() // Actualiza la vista de tabla cuando se notifica sobre el cambio en los likes desde el DetailViewModel
-            
-        }
+        configureTitleTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +30,16 @@ class TableViewController: UIViewController {
     }
     
     // MARK: - Functions
+    
+    private func configureTitleTableView() {
+        // Configurar el título de la tabla
+        let tableTitleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 24))
+        tableTitleLabel.text = "Países y Capitales"
+        tableTitleLabel.textAlignment = .center
+        tableTitleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        tableView.tableHeaderView = tableTitleLabel
+    }
+    
     /// Inicializa y configura la tabla y la celda
     func initiateTable() {
         // Configurar la tabla
@@ -61,7 +47,7 @@ class TableViewController: UIViewController {
         tableView.delegate = self
         
         // Registra la celda personalizada
-        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "TableViewCell")
+        tableView.register(UINib(nibName: TableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
     }
     
     private func updateLikes() {
