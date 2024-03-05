@@ -50,12 +50,6 @@ class TableViewController: UIViewController {
         tableView.register(UINib(nibName: TableViewCell.identifier, bundle: nil), forCellReuseIdentifier: TableViewCell.identifier)
     }
     
-    private func updateLikes() {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
     func set(viewModel: TableViewModel) {
         self.viewModel = viewModel
     }
@@ -71,13 +65,12 @@ class TableViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension TableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         viewModel?.countCountries() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: "TableViewCell", for: indexPath)as? TableViewCell
+            withIdentifier: TableViewCell.identifier, for: indexPath)as? TableViewCell
         else {
             return UITableViewCell()
         }
