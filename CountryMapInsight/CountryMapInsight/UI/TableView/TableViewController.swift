@@ -48,6 +48,11 @@ class TableViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Functions
     /// Inicializa y configura la tabla y la celda
     func initiateTable() {
